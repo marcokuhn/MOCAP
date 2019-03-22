@@ -31,7 +31,7 @@ public class GetMocapData : MonoBehaviour
 
         for(int i = 0; i < 10; i++){
             for(int j = 0; j < 10; j++){
-                ins = Instantiate(go, new Vector3(i*spacingX,2.0f + j*spacingY,0.0f), Quaternion.identity, gameObject.transform);
+                ins = Instantiate(go, new Vector3(-3.0f + (i*spacingX), 1.0f + j*spacingY,0.0f), Quaternion.identity, gameObject.transform);
                 ins.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
                 ins.AddComponent<Rigidbody>();
                 var ins_rg = ins.GetComponent<Rigidbody>();

@@ -25,11 +25,19 @@ namespace Mocap {
     public float totalVelocityRotation;
 
     private OscMessage message1;
+    private OscMessage message2;
+    private OscMessage message3;
+    private OscMessage message4;
+    private OscMessage message5;
+    private OscMessage message6;
+    private OscMessage[] OscMessages;
 
     //
     public Dictionary<string, Vector3> Positions;
     public Dictionary<string, Quaternion> Rotations;
     public Dictionary<string, Vector3> Velocities;
+
+    string tfName;
 
     void Start()
     {
@@ -43,6 +51,8 @@ namespace Mocap {
         Rotations = new Dictionary<string, Quaternion>();
         Velocities = new Dictionary<string, Vector3>();
 
+        message1 = new OscMessage();
+        string tfName = "";
     }
 
     void Update()
@@ -52,49 +62,53 @@ namespace Mocap {
             // ALL TRANSFORM OBJECTS
             if (tf)
             {
-                string tfName = tf.name.Replace("Robot_", "");
+                tfName = tf.name.Replace("Robot_", "");
 
                 // POSITION
                 Positions[tfName] = tf.position;
                 //TODO GC 200ms
-                message1 = new OscMessage();
                 message1.address = "/mocap/" + tfName + "/position";
+
+                message1.values.Clear();
                 message1.values.Add(tf.position.x);
                 message1.values.Add(tf.position.y);
                 message1.values.Add(tf.position.z);
+
                 oscReference.Send(message1);
+               
                 //ROTATION
                 Rotations[tfName] = tf.rotation;
-                message1 = new OscMessage();
                 message1.address = ("/mocap/" + tfName + "/rotation");
+                message1.values.Clear();
                 message1.values.Add(WrapAngle(tf.localEulerAngles.x));
                 message1.values.Add(WrapAngle(tf.localEulerAngles.y));
                 message1.values.Add(WrapAngle(tf.localEulerAngles.z));
                 oscReference.Send(message1);
+                
                 // VELOCITY
-                message1 = new OscMessage();
                 velocities[index] = (tf.position - lastPositions[index]) / Time.deltaTime;
                 Velocities[tfName] = velocities[index];
                 message1.address = "/mocap/" + tfName + "/velocity";
+                message1.values.Clear();
                 message1.values.Add(velocities[index].magnitude);
                 oscReference.Send(message1);
-
+/*
                 // VELOCITY ROTATION
-                message1 = new OscMessage();
                 velocities_rotation[index] = (tf.localEulerAngles - lastRotations[index]) / Time.deltaTime;
                 message1.address = "/mocap/" + tfName + "/velocity_rotation";
+                message1.values.Clear();
                 message1.values.Add(velocities_rotation[index].magnitude);
                 oscReference.Send(message1);
                 // store current values for next frame
                 lastPositions[index] = tf.position;
                 lastRotations[index] = tf.localEulerAngles;
-
+   */
                 //
                 index++;
             }
 
         }
-
+/*
         // VELOCITY ALL
         // sum up all velocities into 1 value
 
@@ -103,8 +117,9 @@ namespace Mocap {
         {
             totalVelocity += velocities[i].magnitude;
         }
-        message1 = new OscMessage();
+
         message1.address = "/mocap/VelocityAll";
+        message1.values.Clear();
         message1.values.Add(totalVelocity);
         oscReference.Send(message1);
 
@@ -115,12 +130,12 @@ namespace Mocap {
         {
             totalVelocityRotation += velocities_rotation[i].magnitude;
         }
-        message1 = new OscMessage();
+
         message1.address = "/mocap/VelocityRotationAll";
+        message1.values.Clear();
         message1.values.Add(totalVelocityRotation);
         oscReference.Send(message1);
-
-        //
+ */
         index = 0;
     }
 
