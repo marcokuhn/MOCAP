@@ -1,0 +1,2897 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="C:\Users\voidnoise\Documents\MOCAP\vvvv\ReceiveOSC\ReceiveOSC_2.v4p" systemname="ReceiveOSC_2" filename="C:\Users\voidnoise\Documents\MOCAP\vvvv\ReceiveOSC\ReceiveOSC_2.v4p">
+   <BOUNDS type="Window" left="3465" top="2385" width="24345" height="12240">
+   </BOUNDS>
+   <NODE componentmode="InABox" id="148" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="1005" top="2550" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="22050" top="16170" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="480" left="1005" top="2550" type="Box" width="1065">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Local Port|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="9019">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="100000">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="18">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="147" nodename="IOBox (Enumerations)" systemname="IOBox (Enumerations)">
+   <BOUNDS height="0" left="2235" top="2550" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="23595" top="18045" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="240" left="2235" top="2550" type="Box" width="930">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Queue Mode|">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Input Enum" slicecount="1" values="Spread">
+   </PIN>
+   </NODE>
+   <NODE hiddenwhenlocked="0" id="146" nodename="S+H (Raw)" systemname="S+H (Raw)">
+   <PIN pinname="Input" visible="1" slicecount="1" encoded="1" values="||">
+   </PIN>
+   <PIN pinname="Set" visible="1" slicecount="1" values="3">
+   </PIN>
+   <BOUNDS height="270" left="585" top="3780" type="Node" width="885">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="145" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="600" top="1710" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="600" top="1710" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enable">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE id="144" nodename="UDP (Network Server)" systemname="UDP (Network Server)">
+   <BOUNDS height="270" left="585" top="3360" type="Node" width="1695">
+   </BOUNDS>
+   </NODE>
+   <LINK dstnodeid="144" dstpinname="Local Port" srcnodeid="148" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="144" dstpinname="Queue Mode" srcnodeid="147" srcpinname="Output Enum">
+   </LINK>
+   <LINK dstnodeid="146" dstpinname="Set" hiddenwhenlocked="0" linkstyle="Bezier" srcnodeid="144" srcpinname="Queue Count">
+   </LINK>
+   <LINK srcnodeid="144" srcpinname="Output" dstnodeid="146" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="145" srcpinname="Y Output Value" dstnodeid="144" dstpinname="Enable">
+   </LINK>
+   <NODE nodename="S (Node)" id="143" systemname="S (Node)">
+   <BOUNDS type="Node" left="585" top="4335" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Send String" slicecount="1" values="OSC">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="146" srcpinname="Output" dstnodeid="143" dstpinname="Input Value">
+   </LINK>
+   <NODE systemname="OSC Values" filename="subpatches\OSC Values.v4p" nodename="subpatches\OSC Values.v4p" componentmode="Hidden" id="142">
+   <BOUNDS type="Node" left="6795" top="3900" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Value Name" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="141" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="6810" top="3555" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6810" top="3555" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="positions">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="141" srcpinname="Output String" dstnodeid="142" dstpinname="Value Name">
+   </LINK>
+   <NODE nodename="S (Value)" id="140" systemname="S (Value)">
+   <BOUNDS type="Node" left="6795" top="4335" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Send String" slicecount="1" values="|OSC Positions|">
+   </PIN>
+   <PIN pinname="Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="142" srcpinname="Output" dstnodeid="140" dstpinname="Input Value">
+   </LINK>
+   <NODE systemname="OSC Values" filename="subpatches\OSC Values.v4p" nodename="subpatches\OSC Values.v4p" componentmode="Hidden" id="139">
+   <BOUNDS type="Node" left="8325" top="3915" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Value Name" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="138" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="8340" top="3555" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8340" top="3555" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="rotations">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="138" srcpinname="Output String" dstnodeid="139" dstpinname="Value Name">
+   </LINK>
+   <NODE nodename="S (Value)" id="137" systemname="S (Value)">
+   <BOUNDS type="Node" left="8325" top="4335" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Send String" slicecount="1" values="|OSC Rotations|">
+   </PIN>
+   <PIN pinname="Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="139" srcpinname="Output" dstnodeid="137" dstpinname="Input Value">
+   </LINK>
+   <NODE systemname="OSC Values" filename="subpatches\OSC Values.v4p" nodename="subpatches\OSC Values.v4p" componentmode="Hidden" id="136">
+   <BOUNDS type="Node" left="9855" top="3930" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Value Name" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="135" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="9870" top="3555" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9870" top="3555" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="velocities">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="135" srcpinname="Output String" dstnodeid="136" dstpinname="Value Name">
+   </LINK>
+   <NODE nodename="S (Value)" id="134" systemname="S (Value)">
+   <BOUNDS type="Node" left="9855" top="4335" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Send String" slicecount="1" values="|OSC Velocities|">
+   </PIN>
+   <PIN pinname="Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="136" srcpinname="Output" dstnodeid="134" dstpinname="Input Value">
+   </LINK>
+   <NODE systemname="CreateEnum (Enumerations)" nodename="CreateEnum (Enumerations)" componentmode="Hidden" id="133">
+   <BOUNDS type="Node" left="14445" top="1530" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Strings" visible="1">
+   </PIN>
+   <PIN pinname="Enum Name" slicecount="1" values="|OSC Values|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="132" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="14460" top="720" width="1260" height="705">
+   </BOUNDS>
+   <BOUNDS type="Node" left="14460" top="720" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="3" visible="1" values="Position,Rotation,Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="String">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="132" srcpinname="Output String" dstnodeid="133" dstpinname="Strings">
+   </LINK>
+   <NODE systemname="OSC Strings" filename="subpatches\OSC Strings.v4p" nodename="subpatches\OSC Strings.v4p" componentmode="Hidden" id="131">
+   <BOUNDS type="Node" left="4785" top="3915" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3235" top="2365" width="3100" height="3100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="240" top="4950" width="7395" height="9855">
+   </BOUNDS>
+   <PIN pinname="Value Name" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="130" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="4785" top="3555" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4785" top="3555" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="names">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="130" srcpinname="Output String" dstnodeid="131" dstpinname="Value Name">
+   </LINK>
+   <NODE nodename="S (String)" id="129" systemname="S (String)">
+   <BOUNDS type="Node" left="4785" top="4335" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Send String" slicecount="1" values="|OSC BodyPart Names|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="131" srcpinname="Output" dstnodeid="129" dstpinname="Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="128" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="615" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="615" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="127" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1770" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1770" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="126" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2925" top="6660" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2925" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="125">
+   <BOUNDS type="Node" left="1770" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1770" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="125" srcpinname="Value Output" dstnodeid="127" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="124">
+   <BOUNDS type="Node" left="615" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="615" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15000" top="3780" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="124" srcpinname="Value Output" dstnodeid="128" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="123" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="615" top="5955" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="615" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="123" srcpinname="Output Enum" dstnodeid="124" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="122" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="1785" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1785" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="122" srcpinname="Output Enum" dstnodeid="125" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="121">
+   <BOUNDS type="Node" left="2910" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2910" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="120" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="2925" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2925" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="120" srcpinname="Output Enum" dstnodeid="121" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="121" srcpinname="Value Output" dstnodeid="126" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="CreateEnum (Enumerations)" nodename="CreateEnum (Enumerations)" componentmode="Hidden" id="119">
+   <BOUNDS type="Node" left="12315" top="4335" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Strings" visible="1">
+   </PIN>
+   <PIN pinname="Enum Name" slicecount="1" values="|Body Parts|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="118" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="12300" top="1140" width="1245" height="3030">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12300" top="1140" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="3" visible="1" values="Position,Rotation,Velocitie">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="String">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="16">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="Input">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="118" srcpinname="Output String" dstnodeid="119" dstpinname="Strings">
+   </LINK>
+   <NODE systemname="R (String)" nodename="R (String)" componentmode="Hidden" id="117">
+   <BOUNDS type="Node" left="12300" top="720" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Receive String" slicecount="1" values="|OSC BodyPart Names|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="117" srcpinname="Input Value" dstnodeid="118" dstpinname="Input String">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="116" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="615" top="5460" width="2115" height="375">
+   </BOUNDS>
+   <BOUNDS type="Node" left="615" top="5460" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="116" srcpinname="Output Enum" dstnodeid="124" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="116" srcpinname="Output Enum" dstnodeid="125" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="116" srcpinname="Output Enum" dstnodeid="121" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="115" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4245" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4245" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="114" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5400" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5400" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="113" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6555" top="6660" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6555" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="112">
+   <BOUNDS type="Node" left="5400" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5400" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="112" srcpinname="Value Output" dstnodeid="114" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="111">
+   <BOUNDS type="Node" left="4245" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4245" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11700" top="4410" width="15630" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="111" srcpinname="Value Output" dstnodeid="115" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="110" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4245" top="5955" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4245" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="110" srcpinname="Output Enum" dstnodeid="111" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="109" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5415" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5415" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="109" srcpinname="Output Enum" dstnodeid="112" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="108">
+   <BOUNDS type="Node" left="6540" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6540" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="107" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="6555" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6555" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="107" srcpinname="Output Enum" dstnodeid="108" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="108" srcpinname="Value Output" dstnodeid="113" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="106" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4245" top="5460" width="2130" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4245" top="5460" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="LeftFoot">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="106" srcpinname="Output Enum" dstnodeid="111" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="106" srcpinname="Output Enum" dstnodeid="112" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="106" srcpinname="Output Enum" dstnodeid="108" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="105" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7875" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7875" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="104" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9030" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9030" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="103" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10185" top="6660" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10185" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="102">
+   <BOUNDS type="Node" left="9030" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9030" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="102" srcpinname="Value Output" dstnodeid="104" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="101">
+   <BOUNDS type="Node" left="7875" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7875" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="4410" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="101" srcpinname="Value Output" dstnodeid="105" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="100" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="7875" top="5955" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7875" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="100" srcpinname="Output Enum" dstnodeid="101" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="99" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="9045" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9045" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="99" srcpinname="Output Enum" dstnodeid="102" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="98">
+   <BOUNDS type="Node" left="10170" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10170" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="97" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="10185" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10185" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="97" srcpinname="Output Enum" dstnodeid="98" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="98" srcpinname="Value Output" dstnodeid="103" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="96" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="7875" top="5460" width="2130" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7875" top="5460" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="RightFoot">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="96" srcpinname="Output Enum" dstnodeid="101" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Output Enum" dstnodeid="102" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Output Enum" dstnodeid="98" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="95" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="11490" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11490" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="94" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="12645" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12645" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="93" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="13800" top="6660" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="13800" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="92">
+   <BOUNDS type="Node" left="12645" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12645" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="92" srcpinname="Value Output" dstnodeid="94" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="91">
+   <BOUNDS type="Node" left="11490" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11490" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="4410" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="91" srcpinname="Value Output" dstnodeid="95" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="90" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="11490" top="5955" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11490" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="90" srcpinname="Output Enum" dstnodeid="91" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="89" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="12660" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12660" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="89" srcpinname="Output Enum" dstnodeid="92" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="88">
+   <BOUNDS type="Node" left="13785" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13785" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="87" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="13800" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="13800" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="87" srcpinname="Output Enum" dstnodeid="88" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="88" srcpinname="Value Output" dstnodeid="93" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="86" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="11490" top="5460" width="2130" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11490" top="5460" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Spine">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="86" srcpinname="Output Enum" dstnodeid="91" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="86" srcpinname="Output Enum" dstnodeid="92" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="86" srcpinname="Output Enum" dstnodeid="88" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="85" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="15120" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="15120" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="84" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="16275" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="16275" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="83" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="17430" top="6660" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="17430" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="82">
+   <BOUNDS type="Node" left="16275" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16275" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="82" srcpinname="Value Output" dstnodeid="84" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="81">
+   <BOUNDS type="Node" left="15120" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="15120" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="4410" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="81" srcpinname="Value Output" dstnodeid="85" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="80" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="15120" top="5955" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="15120" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="80" srcpinname="Output Enum" dstnodeid="81" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="79" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="16290" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="16290" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="79" srcpinname="Output Enum" dstnodeid="82" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="78">
+   <BOUNDS type="Node" left="17415" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="17415" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="77" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="17430" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="17430" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="77" srcpinname="Output Enum" dstnodeid="78" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="78" srcpinname="Value Output" dstnodeid="83" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="76" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="15120" top="5460" width="2130" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="15120" top="5460" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Spine1">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="76" srcpinname="Output Enum" dstnodeid="81" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="76" srcpinname="Output Enum" dstnodeid="82" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="76" srcpinname="Output Enum" dstnodeid="78" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="75" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="18750" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18750" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="74" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="19905" top="6660" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="19905" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="73" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="21060" top="6660" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="21060" top="6660" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="72">
+   <BOUNDS type="Node" left="19905" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="19905" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="72" srcpinname="Value Output" dstnodeid="74" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="71">
+   <BOUNDS type="Node" left="18750" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="18750" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="4410" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="71" srcpinname="Value Output" dstnodeid="75" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="70" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="18750" top="5955" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18750" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="70" srcpinname="Output Enum" dstnodeid="71" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="69" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="19920" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="19920" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="69" srcpinname="Output Enum" dstnodeid="72" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="68">
+   <BOUNDS type="Node" left="21045" top="6255" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="21045" top="6255" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="67" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="21060" top="5955" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="21060" top="5955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="67" srcpinname="Output Enum" dstnodeid="68" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="68" srcpinname="Value Output" dstnodeid="73" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="66" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="18750" top="5460" width="2130" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18750" top="5460" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="LeftArm">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="66" srcpinname="Output Enum" dstnodeid="71" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="66" srcpinname="Output Enum" dstnodeid="72" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="66" srcpinname="Output Enum" dstnodeid="68" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="65" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="675" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="675" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="64" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1830" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1830" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="63" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2985" top="9600" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2985" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="62">
+   <BOUNDS type="Node" left="1830" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1830" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="62" srcpinname="Value Output" dstnodeid="64" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="61">
+   <BOUNDS type="Node" left="675" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="675" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="4410" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="61" srcpinname="Value Output" dstnodeid="65" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="60" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="675" top="8895" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="675" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="60" srcpinname="Output Enum" dstnodeid="61" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="59" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="1845" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1845" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="59" srcpinname="Output Enum" dstnodeid="62" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="58">
+   <BOUNDS type="Node" left="2970" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2970" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="57" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="2985" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2985" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="57" srcpinname="Output Enum" dstnodeid="58" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="58" srcpinname="Value Output" dstnodeid="63" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="56" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="675" top="8400" width="2100" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="675" top="8400" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="LeftHand">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="56" srcpinname="Output Enum" dstnodeid="61" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Output Enum" dstnodeid="62" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Output Enum" dstnodeid="58" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="55" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4305" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4305" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="54" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5460" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5460" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="53" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6615" top="9600" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6615" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="52">
+   <BOUNDS type="Node" left="5460" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5460" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Value Output" dstnodeid="54" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="51">
+   <BOUNDS type="Node" left="4305" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4305" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="4410" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="Value Output" dstnodeid="55" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="50" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4305" top="8895" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4305" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="Output Enum" dstnodeid="51" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="49" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5475" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5475" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="49" srcpinname="Output Enum" dstnodeid="52" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="48">
+   <BOUNDS type="Node" left="6600" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6600" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="47" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="6615" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6615" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Output Enum" dstnodeid="48" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="48" srcpinname="Value Output" dstnodeid="53" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="46" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4305" top="8400" width="2100" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4305" top="8400" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Head">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Output Enum" dstnodeid="51" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Output Enum" dstnodeid="52" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Output Enum" dstnodeid="48" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="45" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7935" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7935" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="44" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9090" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9090" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10245" top="9600" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10245" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="9090" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9090" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Value Output" dstnodeid="44" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="7935" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7935" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="4410" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="41" srcpinname="Value Output" dstnodeid="45" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="40" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="7935" top="8895" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7935" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="40" srcpinname="Output Enum" dstnodeid="41" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="39" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="9105" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9105" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="39" srcpinname="Output Enum" dstnodeid="42" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="38">
+   <BOUNDS type="Node" left="10230" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10230" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="37" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="10245" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10245" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="37" srcpinname="Output Enum" dstnodeid="38" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Value Output" dstnodeid="43" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="36" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="7935" top="8400" width="2100" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7935" top="8400" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Head_End">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Output Enum" dstnodeid="41" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Output Enum" dstnodeid="42" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Output Enum" dstnodeid="38" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="35" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="11550" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11550" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="34" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="12705" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12705" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="33" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="13860" top="9600" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="13860" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="12705" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12705" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Value Output" dstnodeid="34" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="31">
+   <BOUNDS type="Node" left="11550" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11550" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7545" top="4950" width="14520" height="9885">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="31" srcpinname="Value Output" dstnodeid="35" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="30" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="11550" top="8895" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11550" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="30" srcpinname="Output Enum" dstnodeid="31" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="29" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="12720" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12720" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Output Enum" dstnodeid="32" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="13845" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13845" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="27" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="13860" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="13860" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Output Enum" dstnodeid="28" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Value Output" dstnodeid="33" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="26" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="11550" top="8400" width="2100" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11550" top="8400" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="RightArm">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="26" srcpinname="Output Enum" dstnodeid="31" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output Enum" dstnodeid="32" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output Enum" dstnodeid="28" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="25" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="15180" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="15180" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="24" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="16335" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="16335" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="23" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="17490" top="9600" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="17490" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="16335" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16335" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Value Output" dstnodeid="24" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="15180" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="15180" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="4410" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Value Output" dstnodeid="25" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="20" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="15180" top="8895" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="15180" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Output Enum" dstnodeid="21" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="19" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="16350" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="16350" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Output Enum" dstnodeid="22" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="17475" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="17475" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="17" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="17490" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="17490" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Output Enum" dstnodeid="18" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Value Output" dstnodeid="23" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="16" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="15180" top="8400" width="2100" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="15180" top="8400" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="RightHand">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Output Enum" dstnodeid="21" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Output Enum" dstnodeid="22" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Output Enum" dstnodeid="18" dstpinname="Select Body Part">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="15" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="18810" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18810" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Position">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="3" values="2.09730887413025,0.312130212783814,3.79761123657227">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="14" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="19965" top="9600" width="1020" height="1110">
+   </BOUNDS>
+   <BOUNDS type="Node" left="19965" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Rotation">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="21120" top="9600" width="975" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="21120" top="9600" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Hips_Velocity">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="4.34757328033447">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="19965" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="19965" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Value Output" dstnodeid="14" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="18810" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="18810" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="4410" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Select Property" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Value Output" dstnodeid="15" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="10" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="18810" top="8895" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18810" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Position">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Positions">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="11" dstpinname="Select Property">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="9" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="19980" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="19980" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Output Enum" dstnodeid="12" dstpinname="Select Property">
+   </LINK>
+   <NODE systemname="GetValues" filename="subpatches\GetValues.v4p" nodename="subpatches\GetValues.v4p" componentmode="Hidden" id="8">
+   <BOUNDS type="Node" left="21105" top="9195" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="21105" top="9195" width="4545" height="5995">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15195" top="3300" width="12135" height="11445">
+   </BOUNDS>
+   <PIN pinname="Message" visible="1">
+   </PIN>
+   <PIN pinname="Type" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Filter Name" visible="1">
+   </PIN>
+   <PIN pinname="Vector/Float" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select Property" slicecount="1" visible="1" values="Rotation">
+   </PIN>
+   <PIN pinname="BodyPart Name" visible="1">
+   </PIN>
+   <PIN pinname="Value Output" visible="1">
+   </PIN>
+   <PIN pinname="Select Body Part" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="7" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="21120" top="8895" width="960" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="21120" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Velocity">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Position">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Output Enum" dstnodeid="8" dstpinname="Select Property">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Value Output" dstnodeid="13" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="6" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="18810" top="8400" width="2100" height="390">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18810" top="8400" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="Hips">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Hips">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Output Enum" dstnodeid="11" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output Enum" dstnodeid="12" dstpinname="Select Body Part">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output Enum" dstnodeid="8" dstpinname="Select Body Part">
+   </LINK>
+   <NODE id="5" nodename="IOBox (String)" componentmode="InABox" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="16035" top="1845" width="1620" height="1485">
+   </BOUNDS>
+   <BOUNDS type="Node" left="16035" top="1845" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Input String" visible="1" slicecount="37" encoded="1" values="LGZmZgAAAABAXQFtP3YUEz9VYR8=,LGZmZgAAAAAAAAAAAAAAAEFkSSA=,LGYAAD8jVkE=,LGZmZgAAAABAYApmP3ZdOj9XSTw=,LGZmZgAAAAAAAAAAQUgAAEJgX0k=,LGYAAD8jVTQ=,LGZmZgAAAABAXnteP3YtVD9WP2Q=,LGZmZgAAAAA0ZS5hQXAAAEE6eHA=,LGYAAD8jVX8=,LGZmZgAAAABATWd3P1ExIz9KcSA=,LGZmZgAAAABCAxYOQVk0Mj8CQC4=,LGYAAD1YUE0=,LGZmZgAAAABAQTwOPzYpfD9VIlY=,LGZmZgAAAABAICsAQjJRUEIbbR0=,LGYAAD5eMBU=,LGZmZgAAAABAOyxFP1R8aT9VaQo=,LGZmZgAAAAA/CnwAQFovAEEzfks=,LGYAAD5aHGc=,LGZmZgAAAABAORZQP3d3MD9gJTg=,LGZmZgAAAABCczwgQmtKXEMBags=,LGYAAEBJIjs=,LGZmZgAAAABAOihWP3cKdT9menA=,LGZmZgAAAAA1ZS5hQWN0P0JxK3A=,LGYAAEBNQmA=,LGZmZgAAAABAOWpBP350Aj9uDzo=,LGZmZgAAAAAzZS5hQXAAAEEuVFc=,LGYAAEANVEc=,LGZmZgAAAABAOFB4QABVWj9rZUI=,LGZmZgAAAAAAAAAAAAAAAEFaDyA=,LGYAAEAYUGg=,LGZmZgAAAABAN2ZeQAFjTj9mUUw=,LGZmZgAAAAAAAAAAQUgAAkFaDyA=,LGYAAEAlcwQ=,LGZmZgAAAABAOElmQABibT9pOEw=,LGZmZgAAAAAAAAAAQXAAAkFaDyA=,LGYAAEAfIxY=,LGYAAEF8bDQ=">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="6">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show SliceIndex" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE id="4" nodename="IOBox (Value Advanced)" componentmode="InABox" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="16020" top="720" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="16020" top="720" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Get Message Names|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE id="3" systemname="GetMessageNames" filename="subpatches\GetMessageNames.v4p" nodename="subpatches\GetMessageNames.v4p" componentmode="Hidden">
+   <BOUNDS type="Node" left="16033" top="1471" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="8070" top="1770" width="13365" height="11385">
+   </BOUNDS>
+   <PIN pinname="Get Message Names" visible="1">
+   </PIN>
+   <PIN pinname="Messages" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Messages" dstnodeid="5" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Get Message Names">
+   </LINK>
+   <NODE nodename="IOBox (String)" systemname="IOBox (String)" componentmode="InABox" id="2">
+   <BOUNDS type="Node" left="4755" top="450" width="3360" height="900">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4755" top="450" width="6300" height="2925">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|4 OSC receivers:&cr;&lf;- names (to create the BodyPart enumeration) string&cr;&lf;- positions (all positions in order of names) float[3]&cr;&lf;- rotations (all rotations in order of names) float[3]&cr;&lf;- velocities (all velocities in order of names) float&cr;&lf;&cr;&lf;1: [GetValues] selects 1 OSC receiver as source.&cr;&lf;2: Inside [GetValues] the BodyPart is selected.&cr;&lf;3: From the BodyPart the ID is used to get the &cr;&lf;corresponding values.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="11">
+   </PIN>
+   </NODE>
+   <NODE systemname="FPS" filename="subpatches\FPS.v4p" nodename="subpatches\FPS.v4p" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="22245" top="540" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Center" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="0" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="22230" top="2580" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="22230" top="2580" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Center">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Center" dstnodeid="0" dstpinname="Y Input Value">
+   </LINK>
+   <PACK Name="dx11" Version="1.3.1">
+   </PACK>
+   <PACK Name="dx11.particles" Version="1.0.3">
+   </PACK>
+   <PACK Name="addonpack" Version="38.1.0">
+   </PACK>
+   </PATCH>

@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
    <PATCH nodename="C:\Users\voidnoise\Documents\MOCAP\vvvv\ReceiveOSC\subpatches\OSC Strings.v4p" systemname="OSC Strings" filename="C:\Users\voidnoise\Documents\MOCAP\vvvv\ReceiveOSC\subpatches\OSC Strings.v4p">
-   <BOUNDS type="Window" left="12705" top="3225" width="9435" height="9855">
+   <BOUNDS type="Window" left="240" top="4950" width="7395" height="9855">
    </BOUNDS>
    <NODE componentmode="InABox" id="19" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="0" left="1875" top="3660" type="Node" width="0">
@@ -259,7 +259,7 @@
    <PACK Name="addonpack" Version="38.1.0">
    </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="20">
-   <BOUNDS type="Box" left="945" top="5850" width="795" height="240">
+   <BOUNDS type="Box" left="945" top="5850" width="810" height="2145">
    </BOUNDS>
    <BOUNDS type="Node" left="945" top="5850" width="0" height="0">
    </BOUNDS>
@@ -272,6 +272,8 @@
    <PIN pinname="String Type" slicecount="1" values="Multiline">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Output">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="12">
    </PIN>
    </NODE>
    <LINK srcnodeid="16" srcpinname="Output" dstnodeid="20" dstpinname="Input String">

@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
-   <PATCH nodename="C:\Users\voidnoise\Documents\MOCAP\vvvv\ReceiveOSC\subpatches\OSC Values.v4p" systemname="OSC Values" filename="C:\Users\voidnoise\Documents\MOCAP\vvvv\ReceiveOSC\subpatches\OSC Values.v4p">
+   <PATCH nodename="C:\Users\voidnoise\Documents\MOCAP\vvvv\ReceiveOSC\subpatches\OSC Values.v4p" systemname="OSC Values" filename="C:\Users\voidnoise\Documents\MOCAP\vvvv\ReceiveOSC\subpatches\OSC Values.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="18150" top="2430" width="12735" height="9750">
    </BOUNDS>
    <NODE componentmode="InABox" id="17" nodename="IOBox (String)" systemname="IOBox (String)">
