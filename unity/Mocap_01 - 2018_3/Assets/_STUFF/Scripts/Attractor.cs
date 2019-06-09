@@ -37,7 +37,7 @@ public class Attractor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sendOSC.totalVelocity != 0)
+       /* if (sendOSC.totalVelocity != 0)
         {
             float sc = sendOSC.totalVelocity * 0.2f * scaleFactor + minScale;
             scSmooth = Mathf.SmoothDamp(scSmooth, sc, ref currentVel, smoothTime, smoothMaxSpeed);
@@ -45,6 +45,6 @@ public class Attractor : MonoBehaviour
             totalPower = sendOSC.totalVelocity * power;
             rb.AddForce((Target.transform.position - transform.position).normalized * totalPower * Time.smoothDeltaTime);
         }
-
+        */
     }
 }

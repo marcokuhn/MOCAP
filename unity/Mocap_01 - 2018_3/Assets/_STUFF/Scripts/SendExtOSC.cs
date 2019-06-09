@@ -19,14 +19,12 @@ public class SendExtOSC : MonoBehaviour
     private int index;
     public float totalVelocity;
     public float totalVelocityRotation;
-    /*
+    
     private extOSC.OSCMessage message1;
     private extOSC.OSCMessage message2;
     private extOSC.OSCMessage message3;
-    private extOSC.OSCMessage message4;
     private extOSC.OSCMessage message5;
-    private extOSC.OSCMessage message6;
-    */
+
     Dictionary<string, extOSC.OSCMessage> TestMessages;
 
     void Start()
@@ -36,55 +34,28 @@ public class SendExtOSC : MonoBehaviour
         velocities = new Vector3[mocap_transforms.Length];
         lastRotations = new Vector3[mocap_transforms.Length];
         velocities_rotation = new Vector3[mocap_transforms.Length];
-
-       TestMessages = new Dictionary<string, extOSC.OSCMessage>();
-        for (int i = 0; i < 60; i++)
-        {
-            TestMessages.Add("testmessage_" + i.ToString(), new extOSC.OSCMessage("address" + i.ToString()));
-        }
-        /*
-        message1 = new extOSC.OSCMessage("");
-        message2 = new extOSC.OSCMessage("");
-        message3 = new extOSC.OSCMessage("");
-        message4 = new extOSC.OSCMessage("");
-        message5 = new extOSC.OSCMessage("");
-        message6 = new extOSC.OSCMessage("");
-        */
     }
 
     void Update()
     {
-
-        for (int i = 0; i < TestMessages.Count ; i++)
-        {
-            var msg = TestMessages["testmessage_" + i.ToString()];
-            msg.AddValue(extOSC.OSCValue.Float(i));
-            msg.AddValue(extOSC.OSCValue.Float(i));
-            msg.AddValue(extOSC.OSCValue.Float(i));
-            Debug.Log(TestMessages["testmessage_"+i.ToString()].Address);
-            Transmitter.Send(msg);
-        }
 
         foreach(Transform tf in mocap_transforms)
         {
             // ALL TRANSFORM OBJECTS
             if (tf) {
                 // POSITION
-                extOSC.OSCMessage message1;
                 message1 = new extOSC.OSCMessage("/mocap/" + tf.name.Replace("Robot_","") + "/position");
                 message1.AddValue(extOSC.OSCValue.Float(tf.position.x));
                 message1.AddValue(extOSC.OSCValue.Float(tf.position.y));
                 message1.AddValue(extOSC.OSCValue.Float(tf.position.z));
 
                 //ROTATION
-                extOSC.OSCMessage message2;
                 message2 = new extOSC.OSCMessage("/mocap/" + tf.name.Replace("Robot_", "") + "/rotation");
                 message2.AddValue(extOSC.OSCValue.Float(WrapAngle(tf.localEulerAngles.x)) );
                 message2.AddValue(extOSC.OSCValue.Float(WrapAngle(tf.localEulerAngles.y)) );
                 message2.AddValue(extOSC.OSCValue.Float(WrapAngle(tf.localEulerAngles.z)) );
 
                 // VELOCITY
-                extOSC.OSCMessage message3;
                 velocities[index] = (tf.position - lastPositions[index]) / Time.deltaTime;
                 message3 = new extOSC.OSCMessage("/mocap/" + tf.name.Replace("Robot_", "") + "/velocity");
                 message3.AddValue(extOSC.OSCValue.Float(velocities[index].magnitude));
@@ -115,14 +86,13 @@ public class SendExtOSC : MonoBehaviour
                     }
                 }
                 */
+
                 // store current values for next frame
                 lastPositions[index] = tf.position;
-               // lastRotations[index] = tf.localEulerAngles;
+                // lastRotations[index] = tf.localEulerAngles;
 
-                //
                 index++;
 
-                
             }
             
         }

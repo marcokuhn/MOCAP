@@ -645,7 +645,7 @@ public class UDPPacketIO
     public static OscMessage StringToOscMessage(string message)
     {
       OscMessage oM = new OscMessage();
-      Console.WriteLine("Splitting " + message);
+      //Console.WriteLine("Splitting " + message);
       string[] ss = message.Split(new char[] { ' ' });
       IEnumerator sE = ss.GetEnumerator();
       if (sE.MoveNext())
